@@ -23,3 +23,7 @@ Route::get('/ruta2', function () {
     return view('ruta2');
 });
 
+//Route::get('/','controladorgenericas2016@index');
+
+Route::post('/consultaPosicionGenericas','dataBaseController@consultaGenericaPosicion');
+

@@ -1,8 +1,8 @@
 var newOptions = {
-    'Ingles': 'ingles',
-    'matematicas': 'matematicas',
-    'estadistica': 'estadistica',
-    'otra': 'otra'
+    'MOD_COMPETEN_CIUDADA_PUNT': 'Competencia Ciudadana',
+    'MOD_INGLES_PUNT': 'Inglés',
+    'MOD_LECTURA_CRITICA_PUNT': 'Lectura Critica',
+    'MOD_RAZONA_CUANTITAT_PUNT': 'Razonamiento Cuantitativo'
 };
 
 $(document).ready(function() {

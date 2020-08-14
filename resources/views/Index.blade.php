@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/png" href="/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 	<title>Icfes DashBoard</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -13,7 +13,7 @@
 
     <!-- Bootstrap core CSS     -->
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
-
+    <link href="/css/chartist-plugin-tooltip.css" rel="stylesheet" />
     <!-- Animation library for notifications   -->
     <link href="/css/animate.min.css" rel="stylesheet"/>
 
@@ -23,7 +23,6 @@
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="/css/demo.css" rel="stylesheet" />
-    <link href="/css/chartist-plugin-tooltip.css" rel="stylesheet" />
 
 
     <!--     Fonts and icons     -->
@@ -141,14 +140,29 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
+                    <div class="col-md-2 ">
 
-                    <div class="col-md-offset-2 col-md-10 ">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Mudulo Generico</h4>
+                            </div>
+                            <div class="content">
+                                <select class="browser-default custom-select" onchange="actualizarGrafica()" id="moduloGenerico">
+                                    <option value="competenciaCiudadana" selected>Competencia Ciudadana</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-10 ">
 
                         <div class="card">
 
                             <div class="content">
                                 <div class="row">
-                                    <div class="custom-control custom-radio col-md-offset-2 col-md-3  ">
+
+                                    <div class="content">
+                                    </div>
+                                    <div class="custom-control custom-radio  col-md-offset-2 col-md-3  ">
                                         <input type="radio" class="custom-control-input" id="barras" name="TipoGrafica">
                                         <label class="custom-control-label" for="barras">Grafica de barras</label>
                                     </div>
@@ -158,45 +172,20 @@
                                         <label class="custom-control-label" for="linear">Grafica linear</label>
                                     </div>
 
-                                    <div class="custom-control custom-radio col-md-3">
+                                    <div class="custom-control custom-radio col-md-2">
                                         <input type="radio" class="custom-control-input" id="pastel" name="TipoGrafica">
                                         <label class="custom-control-label" for="pastel">Grafica de pastel</label>
                                     </div>
+                                </div>
+                                <div class="content">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-2 ">
 
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Mudulo Generico</h4>
-                                <p class="category">Seleccionar </p>
-                            </div>
-                            <div class="content">
-                                <select class="browser-default custom-select" id="moduloGenerico">
-                                    <option selected>Modulo Generico</option>
-                                </select>
-                            </div>
-                            <div class="content"></div>
-                            <div class="content"></div>
-                            <div class="content"></div>
-                            <div class="content"></div>
-                            <div class="content"></div>
-                            <div class="content"></div>
-                            <div class="content"></div>
-                            <div class="content"></div>
-                            <div class="content"></div>
-                            <div class="content"></div>
-                            <div class="content"></div>
-                            <div class="content"></div>
-                            <div class="content"></div>
-                            <div class="content"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-10 ">
+                    <div class="col-md-12 ">
 
                         <div class="card">
                             <div class="header">
@@ -235,6 +224,8 @@
                     </div>
                 </div>
             </div>
+
+            <button class="prueba">dsda</button>
         </div>
 
 
@@ -281,10 +272,18 @@
 	<script src="/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
 	<!-- Js functions -->
-    <script src="/js/Graficar.js"></script>
+    <script src="/js/graficar.js"></script>
     <script src="/js/funciones.js"></script>
+    <script src="/js/queryController.js"></script>
 
-	<script type="text/javascript">
+    <script type="text/javascript">
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>
     	$(document).ready(function(){
 
         	//demo.initChartist();
