@@ -276,28 +276,4 @@
     <script src="/js/funciones.js"></script>
     <script src="/js/queryController.js"></script>
 
-    <script type="text/javascript">
-    <script type="text/javascript">
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-    </script>
-    	$(document).ready(function(){
-
-        	//demo.initChartist();
-
-        	$.notify({
-            	icon: 'pe-7s-gift',
-            	message: "Bienvenido a la entrega del Primer avance de Proyecto Integrador"
-
-            },{
-                type: 'info',
-                timer: 4000
-            });
-
-    	});
-	</script>
-
 </html>
