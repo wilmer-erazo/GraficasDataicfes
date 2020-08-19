@@ -8,6 +8,25 @@ var data = {
 };
 
 $(document).ready(function() {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $(document).ready(function() {
+
+        //demo.initChartist();
+
+        $.notify({
+            icon: 'pe-7s-gift',
+            message: "Bienvenido a la entrega del Primer avance de Proyecto Integrador"
+
+        }, {
+            type: 'info',
+            timer: 4000
+        });
+
+    });
     console.log("ready!");
     initChartist(data);
 });
