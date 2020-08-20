@@ -159,6 +159,7 @@
                 <div class="content">
                     <div class="row">
 
+
                         <div class="content">
                         </div>
                         <div class="custom-control custom-radio col-md-offset-1 col-md-3  ">
@@ -169,6 +170,58 @@
                         <div class="custom-control custom-radio col-md-offset-1 col-md-3">
                             <input type="radio" class="custom-control-input" id="linear" name="TipoGrafica" checked>
                             <label class="custom-control-label" for="linear">Grafica linear</label>
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4 ">
+
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Mudulo Generico</h4>
+                            </div>
+                            <div class="row">
+
+                                <div class="content col-md-offset-1 col-md-2 ">
+                                    <select class="browser-default custom-select" onchange="cargarDatos()" id="moduloGenerico">
+                                        <option value="competenciaCiudadana" selected>Cargando...</option>
+                                    </select>
+                                </div>
+                                <div class="content col-md-offset-3 col-md-2">
+                                    <select class="browser-default custom-select" onchange="actualizarGrafica()" id="universidades">
+                                        <option value="competenciaCiudadana" selected>Cargando...</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 ">
+                        <div class="card">
+
+                            <div class="content">
+                                <div class="row">
+
+                                    <div class="content">
+                                    </div>
+                                    <div class="custom-control custom-radio  col-md-offset-2 col-md-2  ">
+                                        <input type="radio" class="custom-control-input" id="barras" name="TipoGrafica">
+                                        <label class="custom-control-label" for="barras">Grafica de barras</label>
+                                    </div>
+
+                                    <div class="custom-control custom-radio col-md-2">
+                                        <input type="radio" class="custom-control-input" id="linear" name="TipoGrafica" checked>
+                                        <label class="custom-control-label" for="linear">Grafica linear</label>
+                                    </div>
+
+                                    <div class="custom-control custom-radio col-md-2">
+                                        <input type="radio" class="custom-control-input" id="pastel" name="TipoGrafica">
+                                        <label class="custom-control-label" for="pastel">Grafica de pastel</label>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                </div>
+                            </div>
+
                         </div>
 
                         <div class="custom-control custom-radio col-md-offset-1 col-md-3">
@@ -274,7 +327,6 @@
 <script src="/js/graficar.js"></script>
 <script src="/js/funciones.js"></script>
 <script src="/js/queryController.js"></script>
-
 <script type="text/javascript">
     $.ajaxSetup({
         headers: {
