@@ -1,25 +1,4 @@
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-
-
-
-$('.prueba').click(function() {
-    consultaGenericasPosicion();
-});
-
-
-
-function consultaGenericasPosicion() {
-    var e = document.getElementById("moduloGenerico");
-    var competencia = e.options[e.selectedIndex].value;
-    var data
-    var data = {
-        modulo: competencia,
-        tiempo: "genericas2016"
-    }
+function consultaGenericasPosicion(data) {
 
     return $.ajax({
         url: "consultaPosicionGenericas",
@@ -35,10 +14,16 @@ function consultaGenericasPosicion() {
     });
 }
 
-
-
-
-
-function consultaPorSemestre() {
-
+function obtenerInstituciones() {
+    return $.ajax({
+        url: "obtenerInstituciones",
+        method: "post",
+        dataType: "json",
+        success: function(response) {
+            data = response
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
 }

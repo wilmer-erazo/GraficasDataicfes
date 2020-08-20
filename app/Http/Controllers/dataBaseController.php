@@ -20,7 +20,15 @@ class dataBaseController extends Controller
             ),
                 200
         );
-
-
     }
+    public function obtenerInstituciones(Request $request){
+        $response = DB::select('SELECT DISTINCT(INST_NOMBRE_INSTITUCION), INST_COD_INSTITUCION FROM genericas2016');
+        return response()->json(
+            array(
+                "response"=> $response,
+            ),
+                200
+        );
+    }
+
 }
