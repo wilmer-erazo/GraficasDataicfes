@@ -5,9 +5,9 @@
 	<link rel="icon" type="image/png" href="/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-	<title>Icfes DashBoard</title>
+    <title>Icfes DashBoard</title>
 
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
 
@@ -33,8 +33,8 @@
 </head>
 <body>
 
-<div class="wrapper">
-    <div class="sidebar" data-color="blue" data-image="/img/sidebar-5.jpg">
+    <div class="wrapper">
+        <div class="sidebar" data-color="blue" data-image="/img/sidebar-5.jpg">
 
     <!--
 
@@ -43,99 +43,133 @@
 
     -->
 
-    	<div class="sidebar-wrapper">
-            <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
-                    icfes DashBoard
+    <div class="sidebar-wrapper">
+        <div class="logo">
+            <a href="http://www.creative-tim.com" class="simple-text">
+                icfes DashBoard
+            </a>
+        </div>
+
+        <ul class="nav">
+            <li class="active">
+                <a href="/index">
+                    <i class="pe-7s-graph"></i>
+                    <p>Dashboard</p>
                 </a>
-            </div>
+            </li>
+            <li class="">
+                <a href="/ruta2">
+                    <i class="pe-7s-smile"></i>
+                    <p>Pag prubas</p>
+                </a>
+            </li>
 
-            <ul class="nav">
-                <li class="active">
-                    <a href="/index">
-                        <i class="pe-7s-graph"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="/ruta2">
-                        <i class="pe-7s-smile"></i>
-                        <p>Pag prubas</p>
-                    </a>
-                </li>
-
-				<li class="active-pro">
-                    <a href="upgrade.html">
-                        <i class="pe-7s-rocket"></i>
-                        <p>administración</p>
-                    </a>
-                </li>
-            </ul>
-    	</div>
+            <li class="active-pro">
+                <a href="upgrade.html">
+                    <i class="pe-7s-rocket"></i>
+                    <p>administración</p>
+                </a>
+            </li>
+        </ul>
     </div>
+</div>
 
-    <div class="main-panel">
-        <nav class="navbar navbar-default navbar-fixed">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand">Dashboard</a>
+<div class="main-panel">
+    <nav class="navbar navbar-default navbar-fixed">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">Dashboard</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-dashboard"></i>
+                            <p class="hidden-lg hidden-md">Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-globe"></i>
+                        <b class="caret hidden-lg hidden-md"></b>
+                        <p class="hidden-lg hidden-md">
+                          5 Notifications
+                          <b class="caret"></b>
+                      </p>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Notificación 1</a></li>
+                </ul>
+            </li>
+            <li>
+             <a >
+                <i class="fa fa-search"></i>
+                <p class="hidden-lg hidden-md">Search</p>
+            </a>
+        </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <p>
+              Menu
+              <b class="caret"></b>
+          </p>
+
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="#">link 1</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Link 2</a></li>
+    </ul>
+</li>
+<li class="separator hidden-lg"></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+         <div class="col-md-3">
+            <div class="card">
+                <div class="header" style="text-align: center;">
+                    <h4 class="title"style="font-family: sans-serif;">Modulo Generico</h4>
                 </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-left">
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-dashboard"></i>
-								<p class="hidden-lg hidden-md">Dashboard</p>
-                            </a>
-                        </li>
-                        <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-globe"></i>
-                                    <b class="caret hidden-lg hidden-md"></b>
-									<p class="hidden-lg hidden-md">
-										5 Notifications
-										<b class="caret"></b>
-									</p>
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Notificación 1</a></li>
-                              </ul>
-                        </li>
-                        <li>
-                           <a >
-                                <i class="fa fa-search"></i>
-								<p class="hidden-lg hidden-md">Search</p>
-                            </a>
-                        </li>
-                    </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-
-                        <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <p>
-										Menu
-										<b class="caret"></b>
-									</p>
-
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">link 1</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Link 2</a></li>
-                              </ul>
-                        </li>
-						<li class="separator hidden-lg"></li>
-                    </ul>
+                <div class="content" style="text-align: center;">
+                    <select class="browser-default custom-select" onchange="actualizarGrafica()" id="moduloGenerico">
+                        <option value="competenciaCiudadana" selected>Competencia Ciudadana</option>
+                    </select>
                 </div>
             </div>
-        </nav>
+        </div>
+        <div class="col-md-9 ">
+
+            <div class="card">
+
+                <div class="content">
+                    <div class="row">
+
+
+                        <div class="content">
+                        </div>
+                        <div class="custom-control custom-radio col-md-offset-1 col-md-3  ">
+                            <input type="radio" class="custom-control-input" id="barras" name="TipoGrafica">
+                            <label class="custom-control-label" for="barras">Grafica de barras</label>
+                        </div>
+
+                        <div class="custom-control custom-radio col-md-offset-1 col-md-3">
+                            <input type="radio" class="custom-control-input" id="linear" name="TipoGrafica" checked>
+                            <label class="custom-control-label" for="linear">Grafica linear</label>
 
         <div class="content">
             <div class="container-fluid">
@@ -187,100 +221,132 @@
                                 <div class="content">
                                 </div>
                             </div>
+
+                        </div>
+
+                        <div class="custom-control custom-radio col-md-offset-1 col-md-3">
+                            <input type="radio" class="custom-control-input" id="pastel" name="TipoGrafica">
+                            <label class="custom-control-label" for="pastel">Grafica de pastel</label>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-
-                    <div class="col-md-12 ">
-
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Modulos Genericos</h4>
-                                <p class="category">..</p>
-                            </div>
-                            <div class="content">
-                                <div id="PosicionUniversidades" class="ct-chart"></div>
-                                <div class="footer">
-                                    <div class="legend">
-                                    </div>
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="fa fa-history"></i> Pie de pagina
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="col-md-offset-2 col-md-10 ">
-
-                        <div class="card">
-
-                            <div class="content">
-                                <div class="row">
-                                <div class="col-md-4">
-                                    <label for="formControlRange">Año</label>
-                                    <input type="range" min="2014" max="2018" class="form-control-range" id="formControlRange">
-                                </div>
-                            </div>
-                            </div>
-                        </div>
+                    <div class="content">
                     </div>
                 </div>
             </div>
-
-            <button class="prueba">dsda</button>
         </div>
-
-
-        <footer class="footer">
-            <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                Inicio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Proyecto Integrador
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <p class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href=""> Integrator project</a>, made with love for a better web
-                </p>
-            </div>
-        </footer>
-
     </div>
+    <div class="row">
+
+        <div class="col-md-12 ">
+
+            <div class="card">
+                <div class="header">
+                    <h4 class="title" style="font-family: sans-serif;text-align: center;">Modulos Genericos</h4>
+                    <p class="category">..</p>
+                </div>
+                <div class="content">
+                    <div id="PosicionUniversidades" class="ct-chart"></div>
+                    <div class="footer">
+                        <div class="legend">
+                        </div>
+                        <hr>
+                        <div class="stats">
+                            <i class="fa fa-history"></i> Pie de pagina
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-offset-2 col-md-8 ">
+
+            <div class="card">
+
+                <div class="content">
+                    <div class="row">
+                        <div class="col-xs-4" style="font-family: sans-serif; text-align: center;">
+                            <label for="formControlRange">Año</label>
+                            <input type="range" min="2014" max="2018" class="form-control-range" id="formControlRange">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button class="prueba btn btn-success col-xs-offset-5 col-xs-2">CONSULTAR</button><br>
+</div>
+
+
+<footer class="footer">
+    <div class="container-fluid">
+        <nav class="pull-left">
+            <ul>
+                <li>
+                    <a href="#">
+                        Inicio
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Proyecto Integrador
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <p class="copyright pull-right">
+            &copy; <script>document.write(new Date().getFullYear())</script> <a href=""> Integrator project</a>, made with love for a better web
+        </p>
+    </div>
+</footer>
+
+</div>
 </div>
 
 
 </body>
 
-    <!--   Core JS Files   -->
-    <script src="/js/jquery.3.2.1.min.js" type="text/javascript"></script>
-	<script src="/js/bootstrap.min.js" type="text/javascript"></script>
+<!--   Core JS Files   -->
+<script src="/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="/js/bootstrap.min.js" type="text/javascript"></script>
 
-	<!--  Charts Plugin -->
-    <script src="/js/chartist.min.js"></script>
-    <script src="/js/plugins/chartist-plugin-tooltip.js"></script>
+<!--  Charts Plugin -->
+<script src="/js/chartist.min.js"></script>
+<script src="/js/plugins/chartist-plugin-tooltip.js"></script>
 
-    <!--  Notifications Plugin    -->
-    <script src="/js/bootstrap-notify.js"></script>
+<!--  Notifications Plugin    -->
+<script src="/js/bootstrap-notify.js"></script>
 
-    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-	<script src="/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+<script src="/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
-	<!-- Js functions -->
-    <script src="/js/graficar.js"></script>
-    <script src="/js/funciones.js"></script>
-    <script src="/js/queryController.js"></script>
+<!-- Js functions -->
+<script src="/js/graficar.js"></script>
+<script src="/js/funciones.js"></script>
+<script src="/js/queryController.js"></script>
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $(document).ready(function(){
 
-</html>
+        	//demo.initChartist();
+
+        	$.notify({
+               icon: 'pe-7s-gift',
+               message: "Bienvenido a la entrega del Primer avance de Proyecto Integrador"
+
+           },{
+            type: 'info',
+            timer: 4000
+        });
+
+        });
+    </script>
+
+    </html>
