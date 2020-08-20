@@ -13,7 +13,7 @@ class dataBaseController extends Controller
     }
 
     public function consultaGenericaPosicionRegion(Request $request){
-        $response = DB::select('SELECT INST_NOMBRE_INSTITUCION as INSTITUCION, AVG('.$request->modulo.') as PROMEDIO FROM '.$request->tiempo.' WHERE ESTU_DEPTO_RESIDE = '.$request->region.' GROUP BY INST_NOMBRE_INSTITUCION ORDER BY AVG('.$request->modulo.') DESC limit 0, 10');
+        $response = DB::select('SELECT INST_NOMBRE_INSTITUCION as INSTITUCION, AVG('.$request->modulo.') as PROMEDIO FROM genericas'.$request->tiempo.' WHERE PERIODO='.$request->tiempo.''.$request->periodo.' AND ESTU_DEPTO_RESIDE = '.$request->region.' GROUP BY INST_NOMBRE_INSTITUCION ORDER BY AVG('.$request->modulo.') DESC limit 0, 10');
         return response()->json(
             array(
                 "response"=> $response,
