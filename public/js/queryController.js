@@ -6,7 +6,8 @@ function consultaGenericasPosicion(data) {
         dataType: "json",
         data: data,
         success: function(response) {
-            data = response
+            data = response;
+            console.log(data);
         },
         error: function(error) {
             console.log(error);

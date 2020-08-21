@@ -18,33 +18,8 @@ $(document).ready(function() {
     initChartist();
 });
 
-
-function cargarDatos() {
-
-    var datosConsulta = []
-    var e = document.getElementById("moduloGenerico");
-    var competencia = e.options[e.selectedIndex].value;
-
-    var request = {
-        modulo: competencia,
-        tiempo: "genericas2016"
-    }
-    consultaGenericasPosicion(request).then(function(data) {
-        for (let i = 1; i < data.response.length; i++) {
-            datosConsulta[i] = { meta: data.response[i].INSTITUCION, value: parseInt(data.response[i].PROMEDIO) }
-        }
-        data = {
-            series: [
-                datosConsulta
-            ]
-        };
-
-        char.update(data);
-    })
-}
-
-function actualizarGrafica() {
-    cargarDatos()
+function UpdateChar(data) {
+    char.update(data);
 }
 
 function initChartist() {

@@ -1,3 +1,7 @@
+var universidades = [];
+var year = [];
+var period = [];
+
 const MODULOS = [
     { value: 'MOD_COMPETEN_CIUDADA_PUNT', label: 'Competencia Ciudadana' },
     { value: 'MOD_INGLES_PUNT', label: 'Inglés' },
@@ -7,10 +11,7 @@ const MODULOS = [
 
 $(document).ready(function() {
     CargarDatosSelect(MODULOS, 'moduloGenerico');
-    obtenerInstituciones().then((result) => {
-        console.log(result)
-    });
-
+    obtenerInstituciones().then((result) => {});
     CargarInstitucionesSelect();
 });
 
@@ -20,10 +21,8 @@ function CargarInstitucionesSelect() {
         var response = result.response;
         for (let i = 0; i < response.length; i++) {
             universidades[i] = { value: response[i].INST_COD_INSTITUCION, label: response[i].INST_NOMBRE_INSTITUCION }
-
         }
-        console.log(universidades)
-        CargarDatosSelect(universidades, 'universidades', "Universidades")
+        CargarDatosSelect(universidades, 'universidades')
 
     });
 
@@ -40,4 +39,63 @@ function CargarDatosSelect(modulos, id) {
     for (let i = 0; i < modulos.length; i++) {
         options[options.length] = new Option(modulos[i].label, modulos[i].value);
     }
+}
+
+function cargarDatos() {
+
+    var datosConsulta = []
+    var e = document.getElementById("moduloGenerico");
+    var competencia = e.options[e.selectedIndex].value;
+    var request = {
+        modulo: competencia,
+        tabla: year,
+        periodo: period,
+        universidades: universidades
+    }
+
+    consultaGenericasPosicion(request).then(function(data) {
+        for (let i = 0; i < data.response.length; i++) {
+            datosConsulta[i] = { meta: data.response[i].INSTITUCION, value: parseInt(data.response[i].PROMEDIO) }
+        }
+        data = {
+            series: [
+                datosConsulta
+            ]
+        };
+        UpdateChar(data);
+
+    })
+
+
+}
+
+function SelectUniversidades() {
+    var e = document.getElementById("universidades");
+    var universidad = e.options[e.selectedIndex].value;
+    var index = universidades.indexOf(universidad)
+    if (index > -1) {
+        universidades.splice(index, 1);
+    } else {
+        universidades.push(universidad)
+    }
+    cargarDatos();
+}
+
+function modifyDate() {
+    var boxDate = $('.date');
+    var newYears = [];
+    var newPeriods = [];
+    for (let i = 0; i < boxDate.length; i++) {
+        if (boxDate[i].checked) {
+            var temp = "genericas" + boxDate[i].value.slice(0, 4)
+            var index = newYears.indexOf(temp)
+            if (index == -1) {
+                newYears.push(temp);
+            }
+            newPeriods.push(boxDate[i].value)
+        }
+    }
+    year = newYears;
+    period = newPeriods;
+    cargarDatos();
 }
