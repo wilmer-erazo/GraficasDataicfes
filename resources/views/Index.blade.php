@@ -120,43 +120,36 @@
             <div class="content">
                <div class="container-fluid">
                   <div class="row">
-                     <div class="col-md-3">
-                        <div class="card">
-                           <div class="header">
-                              <h4 class="title">Mudulo Generico</h4>
-                           </div>
-                           <div class="row">
-                              <div class="content col-md-offset-1 col-md-2 ">
-                                 <select class="browser-default custom-select" onchange="cargarDatos()" id="moduloGenerico">
-                                    <option value="competenciaCiudadana" selected>Cargando...</option>
-                                 </select>
-                              </div>
-                              <div class="content col-md-offset-3 col-md-2">
-                                 <select class="browser-default custom-select" onchange="SelectUniversidades()" id="universidades">
-                                    <option value="competenciaCiudadana" selected>Cargando...</option>
-                                 </select>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-8 ">
+
+                     <div class="col-md-12 ">
                         <div class="card">
                            <div class="content"></div>
                            <div class="row">
+                            <div class="content col-md-offset-1 col-md-2 ">
+                                <select class="browser-default custom-select" onchange="cargarDatos()" id="moduloGenerico">
+                                   <option value="competenciaCiudadana" selected>Cargando...</option>
+                                </select>
+                             </div>
+                             <div class="content col-md-2">
+                                <select class="browser-default custom-select" onchange="SelectUniversidades()" id="universidades">
+                                   <option value="competenciaCiudadana" selected>Cargando...</option>
+                                </select>
+                             </div>
+                             <div class="content col-md-2 ">
+                                <select class="browser-default custom-select" onchange="cargarDatos()" id="moduloGenerico">
+                                   <option value="competenciaCiudadana" selected>Cargando...</option>
+                                </select>
+                             </div>
                               <div class="custom-control custom-radio col-md-2  ">
                                  <div>
                                     <label class="custom-control-label" for="barras">  Filtro Año   </label>
                                  </div>
-                                 <input type="checkbox" class = "date" value="20161" onclick="modifyDate();"> 2016<br>
-                                 <input type="checkbox" class = "date" value="20171" onclick="modifyDate();"> 2017<br>
-                                 <input type="checkbox" class = "date" value="20181" onclick="modifyDate();"> 2018<br>
-                                 <input type="checkbox" class = "date" value="20191" onclick="modifyDate();"> 2019<br>
+                                 <input type="checkbox" class = "date" value="2016" onclick="modifyDate();"> 2016<br>
+                                 <input type="checkbox" class = "date" value="2017" onclick="modifyDate();"> 2017<br>
+                                 <input type="checkbox" class = "date" value="2018" onclick="modifyDate();"> 2018<br>
+                                 <input type="checkbox" class = "date" value="2019" onclick="modifyDate();"> 2019<br>
                               </div>
-                              <div class="content col-md-2 ">
-                                 <select class="browser-default custom-select" onchange="cargarDatos()" id="moduloGenerico">
-                                    <option value="competenciaCiudadana" selected>Cargando...</option>
-                                 </select>
-                              </div>
+
                               <div class="custom-control custom-radio  col-md-2  ">
                                  <input type="radio" class="custom-control-input" id="barras" name="TipoGrafica">
                                  <label class="custom-control-label" for="barras">Grafica de barras</label>

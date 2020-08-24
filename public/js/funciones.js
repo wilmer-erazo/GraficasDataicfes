@@ -48,7 +48,7 @@ function cargarDatos() {
     var competencia = e.options[e.selectedIndex].value;
     var request = {
         modulo: competencia,
-        tabla: year,
+        year: year,
         periodo: period,
         universidades: universidades
     }
@@ -84,18 +84,15 @@ function SelectUniversidades() {
 function modifyDate() {
     var boxDate = $('.date');
     var newYears = [];
-    var newPeriods = [];
     for (let i = 0; i < boxDate.length; i++) {
         if (boxDate[i].checked) {
-            var temp = "genericas" + boxDate[i].value.slice(0, 4)
+            var temp = boxDate[i].value
             var index = newYears.indexOf(temp)
             if (index == -1) {
                 newYears.push(temp);
             }
-            newPeriods.push(boxDate[i].value)
         }
     }
     year = newYears;
-    period = newPeriods;
     cargarDatos();
 }
