@@ -24,11 +24,12 @@ class dataBaseController extends Controller
     function yearsQuery($years){
         $yearsQuery =' ';
         if (is_null($years) == false) {
-            $yearsQuery = ' AND PERIODO LIKE "'.$years[0] . '%"';
+            $yearsQuery = ' AND ( PERIODO LIKE "'.$years[0] . '%"';
             for ($i=1; $i < count($years); $i++) {
                 $yearsQuery =$yearsQuery. ' OR PERIODO LIKE "'.$years[$i] . '%"';
             }
         }
+        $yearsQuery =$yearsQuery. ')';
         return $yearsQuery;
     }
 
