@@ -29,18 +29,14 @@ class dataBaseController extends Controller
             ),
                 200
         );
+    }
 
     public function consultaGenericaPosicion(Request $request){
-<<<<<<< HEAD
         $universidadesQuery = $this->institucionesQuery($request->universidades);
         $tablas = $request->tabla;
         $temporal = "genericas2016";
         $query = 'SELECT INST_NOMBRE_INSTITUCION as INSTITUCION, INST_COD_INSTITUCION as CODIGO, AVG('.$request->modulo.') as PROMEDIO FROM '.$temporal. $universidadesQuery.' GROUP BY INST_NOMBRE_INSTITUCION,CODIGO ORDER BY INSTITUCION';
         $response = DB::select($query);
-
-=======
-        $response = DB::select('SELECT INST_NOMBRE_INSTITUCION as INSTITUCION, AVG('.$request->modulo.') as PROMEDIO FROM '.$request->tiempo.' GROUP BY INST_NOMBRE_INSTITUCION ORDER BY AVG('.$request->modulo.') DESC limit 0, 10');
->>>>>>> ae52a187891cfd21e7d859fd8edf94cfbc14746c
         return response()->json(
             array(
                 "response"=> $response
