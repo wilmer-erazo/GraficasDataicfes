@@ -66,10 +66,15 @@ function cargarDatos() {
         municipio: municipio
     }
     consultaGenericasPosicion(request).then(function(data) {
+
         for (let i = 0; i < data.response.length; i++) {
             datosConsulta[i] = { meta: data.response[i].INSTITUCION, value: parseInt(data.response[i].PROMEDIO) }
             datosLabel[i] = data.response[i].INSTITUCION;
         }
+        if (data.response.length > 20) {
+            datosLabel = []
+        }
+
         data = {
             labels: datosLabel,
             series: [
@@ -86,6 +91,7 @@ function cargarDatos() {
 function SelectUniversidades() {
     var e = document.getElementById("universidades");
     var universidad = e.options[e.selectedIndex].value;
+
     var index = universidades.indexOf(universidad)
     if (index > -1) {
         universidades.splice(index, 1);
