@@ -1,6 +1,8 @@
 var universidades = [];
 var year = [];
 var period = [];
+var departamento = "null";
+var municipio = "null";
 
 const MODULOS = [
     { value: 'MOD_COMPETEN_CIUDADA_PUNT', label: 'Competencia Ciudadana' },
@@ -11,18 +13,33 @@ const MODULOS = [
 
 $(document).ready(function() {
     CargarDatosSelect(MODULOS, 'moduloGenerico');
-    obtenerInstituciones().then((result) => {});
-    CargarInstitucionesSelect();
+    inicializarSelects(1);
 });
 
-function CargarInstitucionesSelect() {
-    obtenerInstituciones().then((result) => {
+function inicializarSelects(t) {
+    var data = {
+        departamento: departamento,
+        municipio: municipio
+    };
+    obtenerinfoSelects(data).then((result) => {
+        console.log(result)
         var universidades = [];
-        var response = result.response;
-        for (let i = 0; i < response.length; i++) {
-            universidades[i] = { value: response[i].INST_COD_INSTITUCION, label: response[i].INST_NOMBRE_INSTITUCION }
+        var deptos = [];
+        var dataUniversidades = result.instituciones;
+        var datadepartamentos = result.departamentos;
+        var nulo = { value: "null", label: "Seleccionar" }
+        universidades[0] = nulo;
+        deptos[0] = nulo;
+        for (let i = 0; i < dataUniversidades.length; i++) {
+            universidades[i + 1] = { value: dataUniversidades[i].INST_COD_INSTITUCION, label: dataUniversidades[i].INST_NOMBRE_INSTITUCION }
         }
-        CargarDatosSelect(universidades, 'universidades')
+        for (let i = 0; i < datadepartamentos.length; i++) {
+            deptos[i + 1] = { value: datadepartamentos[i].ESTU_COD_RESIDE_DEPTO, label: datadepartamentos[i].ESTU_DEPTO_RESIDE }
+        }
+        CargarDatosSelect(universidades, 'universidades');
+        if (t != 0) {
+            CargarDatosSelect(deptos, 'deptos');
+        }
 
     });
 
@@ -50,9 +67,10 @@ function cargarDatos() {
         modulo: competencia,
         year: year,
         periodo: period,
-        universidades: universidades
+        universidades: universidades,
+        departamento: departamento,
+        municipio: municipio
     }
-
     consultaGenericasPosicion(request).then(function(data) {
         for (let i = 0; i < data.response.length; i++) {
             datosConsulta[i] = { meta: data.response[i].INSTITUCION, value: parseInt(data.response[i].PROMEDIO) }
@@ -95,4 +113,32 @@ function modifyDate() {
     }
     year = newYears;
     cargarDatos();
+}
+
+function modifyDepto() {
+    var e = document.getElementById("deptos");
+    departamento = e.options[e.selectedIndex].value;
+    inicializarSelects(0);
+    obtenerMunicipio();
+}
+
+function modifyMunicipio() {
+    var e = document.getElementById("deptos");
+    departamento = e.options[e.selectedIndex].value;
+    inicializarSelects(0);
+    obtenerMunicipio();
+}
+
+function obtenerMunicipio() {
+    obtenerMunicipiosSelect(departamento).then((result) => {
+        console.log(result);
+        var municipios = [];
+        var dataMunicipios = result.municipios;
+        var nulo = { value: "null", label: "Seleccionar" }
+        municipios[0] = nulo;
+        for (let i = 0; i < dataMunicipios.length; i++) {
+            municipios[i] = { value: dataMunicipios[i].ESTU_COD_RESIDE_MCPIO, label: dataMunicipios[i].ESTU_MCPIO_RESIDE }
+        }
+        CargarDatosSelect(municipios, 'municipios');
+    });
 }

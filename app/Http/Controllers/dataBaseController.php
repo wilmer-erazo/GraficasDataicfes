@@ -51,14 +51,37 @@ class dataBaseController extends Controller
 
 
     public function obtenerInstituciones(Request $request){
-        $response = DB::select('SELECT DISTINCT(INST_NOMBRE_INSTITUCION), INST_COD_INSTITUCION FROM mastertable');
+        if( $request->departamento != "null" ){
+            if( $request->municipio != "null" ){
+                $instituciones = DB::select('SELECT DISTINCT(INST_NOMBRE_INSTITUCION), INST_COD_INSTITUCION FROM mastertable where ESTU_COD_RESIDE_MCPIO = '.$request->municipio);
+            }
+            else{
+                $instituciones = DB::select('1SELECT DISTINCT(INST_NOMBRE_INSTITUCION), INST_COD_INSTITUCION FROM mastertable where ESTU_COD_RESIDE_DEPTO = '.$request->departamento);
+            }
+        }
+        else{
+            $instituciones = DB::select('SELECT DISTINCT(INST_NOMBRE_INSTITUCION), INST_COD_INSTITUCION FROM mastertable');
+        }
+
+        $departamentos = DB::select('SELECT DISTINCT(ESTU_DEPTO_RESIDE), ESTU_COD_RESIDE_DEPTO FROM mastertable');
+
         return response()->json(
             array(
-                "response"=> $response
+                "instituciones"=> $instituciones,
+                "departamentos"=> $departamentos
             ),
                 200
         );
     }
 
+    public function obtenerMunicipio(Request $request){
+        $municipios = DB::select('SELECT DISTINCT(ESTU_MCPIO_RESIDE), ESTU_COD_RESIDE_MCPIO FROM mastertable where ESTU_COD_RESIDE_DEPTO = '.$request->deptartamento);
 
+        return response()->json(
+            array(
+                "municipios"=> $municipios
+            ),
+                200
+        );
+    }
 }
