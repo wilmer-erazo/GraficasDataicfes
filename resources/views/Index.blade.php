@@ -156,7 +156,7 @@
                                 <div>
                                     <label class="custom-control-label" for="barras"> Municipio  </label>
                                 </div>
-                                <select class="browser-default custom-select" onchange="modifyDepto()" id="municipios">
+                                <select class="browser-default custom-select" onchange="modifyMunicipio()" id="municipios">
                                    <option value="competenciaCiudadana" selected>Seleccionar</option>
                                 </select>
                              </div>

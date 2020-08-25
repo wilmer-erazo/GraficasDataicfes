@@ -16,13 +16,8 @@ $(document).ready(function() {
     inicializarSelects(1);
 });
 
-function inicializarSelects(t) {
-    var data = {
-        departamento: departamento,
-        municipio: municipio
-    };
-    obtenerinfoSelects(data).then((result) => {
-        console.log(result)
+function inicializarSelects() {
+    obtenerinfoSelects().then((result) => {
         var universidades = [];
         var deptos = [];
         var dataUniversidades = result.instituciones;
@@ -37,9 +32,7 @@ function inicializarSelects(t) {
             deptos[i + 1] = { value: datadepartamentos[i].ESTU_COD_RESIDE_DEPTO, label: datadepartamentos[i].ESTU_DEPTO_RESIDE }
         }
         CargarDatosSelect(universidades, 'universidades');
-        if (t != 0) {
-            CargarDatosSelect(deptos, 'deptos');
-        }
+        CargarDatosSelect(deptos, 'deptos');
 
     });
 
@@ -61,6 +54,7 @@ function CargarDatosSelect(modulos, id) {
 function cargarDatos() {
 
     var datosConsulta = []
+    var datosLabel = []
     var e = document.getElementById("moduloGenerico");
     var competencia = e.options[e.selectedIndex].value;
     var request = {
@@ -74,8 +68,10 @@ function cargarDatos() {
     consultaGenericasPosicion(request).then(function(data) {
         for (let i = 0; i < data.response.length; i++) {
             datosConsulta[i] = { meta: data.response[i].INSTITUCION, value: parseInt(data.response[i].PROMEDIO) }
+            datosLabel[i] = data.response[i].INSTITUCION;
         }
         data = {
+            labels: datosLabel,
             series: [
                 datosConsulta
             ]
@@ -118,15 +114,21 @@ function modifyDate() {
 function modifyDepto() {
     var e = document.getElementById("deptos");
     departamento = e.options[e.selectedIndex].value;
-    inicializarSelects(0);
     obtenerMunicipio();
+    cargarDatos();
 }
 
 function modifyMunicipio() {
     var e = document.getElementById("deptos");
     departamento = e.options[e.selectedIndex].value;
-    inicializarSelects(0);
     obtenerMunicipio();
+    cargarDatos();
+}
+
+function modifyMunicipio() {
+    var e = document.getElementById("municipios");
+    municipio = e.options[e.selectedIndex].value;
+    cargarDatos();
 }
 
 function obtenerMunicipio() {
@@ -137,7 +139,7 @@ function obtenerMunicipio() {
         var nulo = { value: "null", label: "Seleccionar" }
         municipios[0] = nulo;
         for (let i = 0; i < dataMunicipios.length; i++) {
-            municipios[i] = { value: dataMunicipios[i].ESTU_COD_RESIDE_MCPIO, label: dataMunicipios[i].ESTU_MCPIO_RESIDE }
+            municipios[i + 1] = { value: dataMunicipios[i].ESTU_COD_RESIDE_MCPIO, label: dataMunicipios[i].ESTU_MCPIO_RESIDE }
         }
         CargarDatosSelect(municipios, 'municipios');
     });

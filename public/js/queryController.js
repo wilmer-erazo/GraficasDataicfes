@@ -6,10 +6,12 @@ function consultaGenericasPosicion(data) {
         data: data,
         success: function(response) {
             data = response;
+            console.log(response)
         },
         error: function(error) {
             console.log(error);
         }
+
     });
 }
 
